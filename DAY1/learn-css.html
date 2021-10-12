@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <style type="text/css">
+      /* p {
+        color: orange; /*폰트의 색상을 결정해줌*/
+
+      /* #id-test,
+      .class-test {
+        color: blue;
+      } */
+      /*
+      .class-test {
+        color: red;
+      } */
+      /*하위선택자*/
+      #item-list p {
+        /*item-list 중의 모든 p 태그에 적용해주겠다*/
+        color: red;
+      }
+
+      #item-list > p {
+        color: blue;
+        /* 첫번째 자식들에게만 blue가 적용됨 */
+        /* 겹칠때는 아래에 있는 것이 최신이 됨. */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <p>Hello Grab</p>
+    <p>Hello Everyone</p>
+    <div id="id-test">id가 적용된다</div>
+    <div class="class-test">class가 적용된다</div>
+    <div class="class-test">class가 적용될까?</div> -->
+    <div id="item-list">
+      <p>첫번째 자식 아이템1</p>
+      <p>첫번째 자식 아이템2</p>
+      <div>
+        <p>두번째 자식 아이템1</p>
+        <p>두번째 자식 아이템2</p>
+      </div>
+    </div>
+  </body>
+</html>
