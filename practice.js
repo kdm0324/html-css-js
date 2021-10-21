@@ -177,3 +177,157 @@ if (classA.length >= 5) {
 } else {
   console.log("아무것도 없음");
 }
+
+// 함수
+// 함수는 작업을 수행하는 코드들을 정의하는 코드 블록입니다.
+// sayHello라는 함수 선언하기
+// 첫번째 방식 - 함수 선언식이라고 함
+function sayHello() {
+  console.log("sayHello!");
+}
+
+// 두번째 방식 - 함수 표현식이라고 함
+const sayHello = function () {
+  console.log("say Hello!");
+};
+
+// 함수를 사용한다는 것은 실행한다는 것을 뜻합니다. 실행할 때 소괄호 ()를 붙입니다.
+// 실행되면 함수의 {} 안에 있는 코드들이 실행됩니다.
+
+// 함수를 한번 만들어 두면 재사용이 가능하기에 코드를 깔끔하게 관리할 수도 있습니다.
+
+// 함수 인자 (매개변수 parameter)
+// 함수의 인자명은 문자+숫자 형태로 자유롭게 작성하면 됩니다.
+
+function calculation(x) {
+  var result = 3 * x + 5;
+  console.log("결과 값은 " + result + "입니다.");
+}
+
+var age = function (name, age) {
+  console.log(name + "는" + age + "살입니다");
+};
+
+// 함수 값 반환(return)
+//  return 아래는 실행되지 않아
+function calculation(x) {
+  var result = 3 * x + 5;
+  return result;
+}
+
+function getProfile(name, age) {
+  return {
+    name: name,
+    age: age,
+  };
+}
+
+// 함수 밖에서 선언된 변수는 함수 안에서 사용이 가능합니다.
+// 하지만 함수 안에서 선언된 변수는 함수 밖에서 사용이 불가능합니다.
+
+var products = [
+  {
+    name: "농구공",
+    decription: "농구 황제 마이클 조던이 사용하던 공",
+    price: 100000,
+    seller: "민수",
+  },
+  {
+    name: "축구공",
+    decription: "축구 황제 메시가 사용하던 공",
+    price: 50000,
+    seller: "철수",
+  },
+];
+
+function arrayLength(inputArray) {
+  return inputArray.length;
+}
+
+console.log(arrayLength(products));
+
+function getProductSeller(inputProduct) {
+  return inputProduct.seller;
+}
+
+console.log(getProductSeller(products[0]));
+
+// 반복문
+// 상품 정보들을 100개 보여줄때 상품 정보 보여주는 코드를 100번 짜야되는 건 아니니까
+// list 에 넣어두고 index 활용하여 짜는 것이 좋겠네
+
+for (var i = 0; i < 10; i++) {
+  console.log("나는 그랩이다" + i);
+}
+
+var names = ["철수", "민수", "그랩"];
+
+names[0];
+
+for (var i = 0; i < names.length; i++) {
+  console.log(names[i]);
+}
+
+var products = [
+  {
+    name: "농구공",
+    decription: "농구 황제 마이클 조던이 사용하던 공",
+    price: 100000,
+    seller: "민수",
+  },
+  {
+    name: "축구공",
+    decription: "축구 황제 메시가 사용하던 공",
+    price: 50000,
+    seller: "철수",
+  },
+  {
+    name: "야구공",
+    decription: "박찬호가 던진 공",
+    price: 75000,
+    seller: "그랩",
+  },
+];
+
+function getProductsPrice(products) {
+  for (var i = 0; i < products.length; i++) {
+    console.log(products[i].name + "의 가격은 " + products[i].price + "입니다");
+  }
+}
+
+// javascript 최종 문제
+// products배열을 넣었을 때 가격이 60000원 이상인 product 객체를 담은 배열을 반환하는 함수를 만들어라
+var products = [
+  {
+    name: "농구공",
+    decription: "농구 황제 마이클 조던이 사용하던 공",
+    price: 100000,
+    seller: "민수",
+  },
+  {
+    name: "축구공",
+    decription: "축구 황제 메시가 사용하던 공",
+    price: 50000,
+    seller: "철수",
+  },
+  {
+    name: "야구공",
+    decription: "박찬호가 던진 공",
+    price: 75000,
+    seller: "그랩",
+  },
+];
+
+function getProduct(products) {
+  var resultArray = [];
+  for (var i = 0; i < products.length; i++) {
+    if (products[i].price >= 60000) {
+      resultArray.push(products[i]);
+    }
+  }
+  return resultArray;
+}
+
+var result = getProduct(products);
+
+console.log(result);
