@@ -331,3 +331,72 @@ function getProduct(products) {
 var result = getProduct(products);
 
 console.log(result);
+
+// 콜백함수, 익명 함수
+// 1. 함수는 매개변수를 넣을 수 있다.
+// 2. 함수는 값을 반환할 수 있다.
+// 콜백함수 개념만 알면 함수의 대부분을 알고 있다는 것임.
+// 콜백함수 : 함수가 나중에 불린다고 해서 callback 임.
+
+function sayHello() {
+  console.log("수강생 여러분 안녕하세요");
+}
+
+function getHuman(callbackFunc) {
+  callbackFunc();
+}
+
+function getHuman(callbackFunc) {
+  console.log("콜백함수로 실행한거임");
+  callbackFunc();
+}
+
+function callbackFunc(name) {
+  console.log(name);
+}
+
+function sayHello(callback) {
+  var text = "hello";
+  callback(text);
+}
+
+sayHello(callbackFunc);
+
+// 비동기 처리
+// javascript code interpreter 는 대표적으로 브라우저 내부에 탑재 되어있음.
+// 프론트엔드 개발자가 짠 javascript 코드가 브라우저에서 실행시키기 위해서.
+// 윗 줄의 코드가 오랜 시간을 걸리면, 아랫 코드는 계속 대기중일 것임.
+// 그래서 비동기 방식을 이용하는 것임.
+
+// setTimeout 함수도 비동기 처리를 지원합니다.
+setTimeout(function () {
+  console.log("3초 뒤에 실행됩니다.");
+}, 3000);
+console.log("바로 실행됩니다.");
+
+// 비동기 처리를 해주는 Promise 객체를 이용한 방식이 있음.
+// 실행이 되는지 or 에러가 나는지 두개의 분기가 나누어짐.
+// then or catch
+
+var result = fetch("https://jsonplaceholder.typicode.com/todos/1");
+
+result
+  .then(function (response) {
+    console.log("이 코드는 네트워크 통신이 끝나고 나서 실행되요.");
+  })
+  .catch(function (error) {
+    console.log("이 코드 에러가 났을 때 실행되요");
+  });
+console.log("네트워크 통신이 끝날 때 까지 기다리지 않고 바로 실행되요 2");
+
+// Promise 객체 만들 수 있어야함.
+
+// 서버와 HTTP 개념 이해하기
+// 클라이언트 - 서버
+// 통신프로토콜 SMTP, FTP, HTTP 는 브라우저가 웹서버오 ㅏ통신하기 위해 생긴 프로토콜
+
+// HTTP 요청
+// 1. 어떤서버에게 요청할 것인지 URL 이 있어야함.
+// 2. 어떤 방식으로 요청할 것인지 method 가 있어야함.( GET POST, PUT, DELETE 등..)
+//  GET -> 정보를 받아 올때
+//  POST -> 새로운 자원을 생성할때 쓰이는 것
